@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Yeni Yıl</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Poppins', sans-serif;
+  background:linear-gradient(-45deg,#0f0c29,#302b63,#24243e,#5f2c82);
+  background-size:400% 400%;
+  animation:bg 12s ease infinite;
+}
+
+/* ARKA PLAN ANİMASYONU */
+@keyframes bg{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* CAM KART */
+.card{
+  padding:50px 70px;
+  border-radius:25px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.2);
+  box-shadow:0 0 80px rgba(255,110,199,0.35);
+  animation:float 6s ease-in-out infinite;
+}
+
+/* YAZI */
+.text{
+  font-size:36px;
+  font-weight:700;
+  text-align:center;
+  color: pink;
+  text-shadow:
+    0 0 15px #ff6ec7,
+    0 0 30px #b388ff,
+    0 0 45px #ffd700;
+  animation:glow 3s ease-in-out infinite alternate;
+}
+
+  to{
+    text-shadow:
+      0 0 20px #ff9ad5,
+      0 0 40px #c9a3ff,
+      0 0 60px #fff3a0;
+  }
+}
+
+/* KART HAREKET */
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-15px)}
+}
+
+/* PARÇACIKLAR */
+span{
+  position:absolute;
+  bottom:-50px;
+  font-size:22px;
+  animation:fly linear infinite;
+  opacity:0.8;
+}
+
+@keyframes fly{
+  from{
+    transform:translateY(0) rotate(0deg);
+    opacity:0;
+  }
+  to{
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:1;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="text">
+    herkes yeni yıla sen benim yıllarıma
+  </div>
+</div>
+  <footer style="color: #fff">
+    bu site miprex tarafindan yapildi
+  </footer>
+
+<script>
+const icons = ["💗","💜","⭐"];
+for(let i=0;i<30;i++){
+  let s = document.createElement("span");
+  s.innerText = icons[Math.floor(Math.random()*icons.length)];
+  s.style.left = Math.random()*100 + "vw";
+  s.style.animationDuration = (5 + Math.random()*5) + "s";
+  s.style.fontSize = (18 + Math.random()*20) + "px";
+  document.body.appendChild(s);
+}
+</script>
+
+</body>
+  </html>
