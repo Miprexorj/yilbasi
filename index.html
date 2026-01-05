@@ -2,118 +2,171 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Yeni Yıl</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bir Sorum Var 💖</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+    * { box-sizing: border-box; }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff4e8a, #ff9a9e);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', sans-serif;
+        overflow: hidden;
+        color: #fff;
+    }
 
-body{
-  height:100vh;
-  overflow:hidden;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-family:'Poppins', sans-serif;
-  background:linear-gradient(-45deg,#0f0c29,#302b63,#24243e,#5f2c82);
-  background-size:400% 400%;
-  animation:bg 12s ease infinite;
-}
+    .card {
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(12px);
+        border-radius: 24px;
+        padding: 35px;
+        text-align: center;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        max-width: 340px;
+        width: 90%;
+        z-index: 2;
+    }
 
-/* ARKA PLAN ANİMASYONU */
-@keyframes bg{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
+    h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
 
-/* CAM KART */
-.card{
-  padding:50px 70px;
-  border-radius:25px;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
-  border:1px solid rgba(255,255,255,0.2);
-  box-shadow:0 0 80px rgba(255,110,199,0.35);
-  animation:float 6s ease-in-out infinite;
-}
+    p {
+        font-size: 17px;
+        margin-bottom: 25px;
+    }
 
-/* YAZI */
-.text{
-  font-size:36px;
-  font-weight:700;
-  text-align:center;
-  color: pink;
-  text-shadow:
-    0 0 15px #ff6ec7,
-    0 0 30px #b388ff,
-    0 0 45px #ffd700;
-  animation:glow 3s ease-in-out infinite alternate;
-}
+    button {
+        padding: 14px 26px;
+        font-size: 16px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
-  to{
-    text-shadow:
-      0 0 20px #ff9ad5,
-      0 0 40px #c9a3ff,
-      0 0 60px #fff3a0;
-  }
-}
+    #yes {
+        background: #fff;
+        color: #ff3f7f;
+        font-weight: bold;
+        box-shadow: 0 10px 20px rgba(255,255,255,0.4);
+    }
 
-/* KART HAREKET */
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-15px)}
-}
+    #yes:hover {
+        transform: scale(1.12);
+    }
 
-/* PARÇACIKLAR */
-span{
-  position:absolute;
-  bottom:-50px;
-  font-size:22px;
-  animation:fly linear infinite;
-  opacity:0.8;
-}
+    #no {
+        background: transparent;
+        border: 2px solid #fff;
+        color: #fff;
+        position: absolute;
+        z-index: 3;
+    }
 
-@keyframes fly{
-  from{
-    transform:translateY(0) rotate(0deg);
-    opacity:0;
-  }
-  to{
-    transform:translateY(-110vh) rotate(360deg);
-    opacity:1;
-  }
-}
+    .heart {
+        position: absolute;
+        font-size: 22px;
+        animation: float 4s linear infinite;
+        opacity: 0.9;
+    }
+
+    @keyframes float {
+        from {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        to {
+            transform: translateY(-900px) scale(1.6);
+            opacity: 0;
+        }
+    }
+
+    .message {
+        margin-top: 15px;
+        font-size: 14px;
+        opacity: 0.9;
+    }
 </style>
 </head>
+
 <body>
 
 <div class="card">
-  <div class="text">
-    herkes yeni yıla sen benim yıllarıma
-  </div>
+    <h1> pistt fatmaa</h1>
+    <p>Benimle çıkar mısın?</p>
+    <button id="yes">Evet 💕</button>
+    <div class="message" id="msg"></div>
 </div>
-  <footer style="color: #fff">
-    bu site miprex tarafindan yapildi
-  </footer>
+
+<button id="no">Hayır 🙃</button>
 
 <script>
-const icons = ["💗","💜","⭐"];
-for(let i=0;i<30;i++){
-  let s = document.createElement("span");
-  s.innerText = icons[Math.floor(Math.random()*icons.length)];
-  s.style.left = Math.random()*100 + "vw";
-  s.style.animationDuration = (5 + Math.random()*5) + "s";
-  s.style.fontSize = (18 + Math.random()*20) + "px";
-  document.body.appendChild(s);
-}
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const msg = document.getElementById("msg");
+
+    let kacis = 0;
+
+    const mesajlar = [
+        "😏 Emin misin?",
+        "😌 Bir daha düşün bence",
+        "😳 Merti mi kiracan",
+        "🥺 Kalbim kırılıyor bak",
+        "💘 Tamam tamam… ama seni seviyorum"
+    ];
+
+    noBtn.style.top = "70%";
+    noBtn.style.left = "50%";
+
+    noBtn.addEventListener("click", () => {
+        kacis++;
+
+        const x = Math.random() * (window.innerWidth - 120);
+        const y = Math.random() * (window.innerHeight - 60);
+
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+
+        msg.textContent = mesajlar[Math.min(kacis - 1, mesajlar.length - 1)];
+
+        if (kacis >= 5) {
+            noBtn.style.display = "none";
+            kalpYagmuru(40);
+            msg.textContent = "💖 Sanırım cevap belli 😍";
+        }
+    });
+
+    yesBtn.addEventListener("click", () => {
+        document.body.innerHTML = `
+            <h1 style="font-size:42px;text-align:center;">
+                💖 YAAA EVET 💖<br>
+                Dünyanın en güzel kararı 😍
+            </h1>
+        `;
+        kalpYagmuru(60);
+    });
+
+    function kalpYagmuru(adet) {
+        for (let i = 0; i < adet; i++) {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "💖";
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.bottom = "-20px";
+            heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 5000);
+        }
+    }
 </script>
 
 </body>
-  </html>
+</html>
