@@ -1,172 +1,102 @@
-<!DOCTYPE html>
-<html lang="tr">
+<!DOCTYPE html><html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bir Sorum Var 💖</title>
-
-<style>
-    * { box-sizing: border-box; }
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İsrail Hakkında</title>
+  <style>
     body {
-        margin: 0;
-        height: 100vh;
-        background: linear-gradient(135deg, #ff4e8a, #ff9a9e);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: 'Segoe UI', sans-serif;
-        overflow: hidden;
-        color: #fff;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f4f4;
+      color: #333;
     }
-
-    .card {
-        background: rgba(255,255,255,0.15);
-        backdrop-filter: blur(12px);
-        border-radius: 24px;
-        padding: 35px;
-        text-align: center;
-        box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-        max-width: 340px;
-        width: 90%;
-        z-index: 2;
+    header {
+      background: linear-gradient(90deg, #0038b8, #ffffff);
+      color: #000;
+      padding: 40px 20px;
+      text-align: center;
     }
-
-    h1 {
-        font-size: 28px;
-        margin-bottom: 10px;
+    nav {
+      background: #0038b8;
+      padding: 10px;
+      text-align: center;
     }
-
-    p {
-        font-size: 17px;
-        margin-bottom: 25px;
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
     }
-
-    button {
-        padding: 14px 26px;
-        font-size: 16px;
-        border: none;
-        border-radius: 30px;
-        cursor: pointer;
-        transition: 0.3s;
+    nav a:hover {
+      text-decoration: underline;
     }
-
-    #yes {
-        background: #fff;
-        color: #ff3f7f;
-        font-weight: bold;
-        box-shadow: 0 10px 20px rgba(255,255,255,0.4);
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
     }
-
-    #yes:hover {
-        transform: scale(1.12);
+    section {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-
-    #no {
-        background: transparent;
-        border: 2px solid #fff;
-        color: #fff;
-        position: absolute;
-        z-index: 3;
+    h2 {
+      color: #0038b8;
     }
-
-    .heart {
-        position: absolute;
-        font-size: 22px;
-        animation: float 4s linear infinite;
-        opacity: 0.9;
+    footer {
+      background: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
     }
-
-    @keyframes float {
-        from {
-            transform: translateY(0) scale(1);
-            opacity: 1;
-        }
-        to {
-            transform: translateY(-900px) scale(1.6);
-            opacity: 0;
-        }
-    }
-
-    .message {
-        margin-top: 15px;
-        font-size: 14px;
-        opacity: 0.9;
-    }
-</style>
+  </style>
 </head>
+<body>  <header>
+    <h1>İsrail Devleti</h1>
+    <p>Tarih, coğrafya ve genel bilgiler</p>
+  </header>  <nav>
+    <a href="#tarih">Tarih</a>
+    <a href="#cografya">Coğrafya</a>
+    <a href="#kultur">Kültür</a>
+    <a href="#siyaset">Siyaset</a>
+  </nav>  <div class="container"><section id="tarih">
+  <h2>Tarih</h2>
+  <p>
+    İsrail Devleti, 1948 yılında kurulmuştur. Bölge, tarih boyunca farklı
+    medeniyetlere ev sahipliği yapmış ve üç semavi din için de büyük önem
+    taşımıştır.
+  </p>
+</section>
 
-<body>
+<section id="cografya">
+  <h2>Coğrafya</h2>
+  <p>
+    İsrail, Orta Doğu'da yer alır. Akdeniz kıyısına sahiptir. Çöl, ova ve dağlık
+    alanlar bir arada bulunur. En bilinen coğrafi bölgelerden biri Ölü Deniz'dir.
+  </p>
+</section>
 
-<div class="card">
-    <h1> pistt fatmaa</h1>
-    <p>Benimle çıkar mısın?</p>
-    <button id="yes">Evet 💕</button>
-    <div class="message" id="msg"></div>
-</div>
+<section id="kultur">
+  <h2>Kültür</h2>
+  <p>
+    İsrail kültürü; Yahudi gelenekleri, Orta Doğu ve Batı kültürlerinin bir
+    karışımıdır. Müzik, mutfak ve bayramlar kültürde önemli yer tutar.
+  </p>
+</section>
 
-<button id="no">Hayır 🙃</button>
+<section id="siyaset">
+  <h2>Siyaset</h2>
+  <p>
+    İsrail parlamenter demokrasi ile yönetilir. Meclisi "Knesset" olarak
+    adlandırılır. Ülkenin siyasi yapısı ve bölgesel ilişkileri uluslararası
+    gündemde sıkça yer alır.
+  </p>
+</section>
 
-<script>
-    const noBtn = document.getElementById("no");
-    const yesBtn = document.getElementById("yes");
-    const msg = document.getElementById("msg");
-
-    let kacis = 0;
-
-    const mesajlar = [
-        "😏 Emin misin?",
-        "😌 Bir daha düşün bence",
-        "😳 Merti mi kiracan",
-        "🥺 Kalbim kırılıyor bak",
-        "💘 Tamam tamam… ama seni seviyorum"
-    ];
-
-    noBtn.style.top = "70%";
-    noBtn.style.left = "50%";
-
-    noBtn.addEventListener("click", () => {
-        kacis++;
-
-        const x = Math.random() * (window.innerWidth - 120);
-        const y = Math.random() * (window.innerHeight - 60);
-
-        noBtn.style.left = x + "px";
-        noBtn.style.top = y + "px";
-
-        msg.textContent = mesajlar[Math.min(kacis - 1, mesajlar.length - 1)];
-
-        if (kacis >= 5) {
-            noBtn.style.display = "none";
-            kalpYagmuru(40);
-            msg.textContent = "💖 Sanırım cevap belli 😍";
-        }
-    });
-
-    yesBtn.addEventListener("click", () => {
-        document.body.innerHTML = `
-            <h1 style="font-size:42px;text-align:center;">
-                💖 YAAA EVET 💖<br>
-                Dünyanın en güzel kararı 😍
-            </h1>
-        `;
-        kalpYagmuru(60);
-    });
-
-    function kalpYagmuru(adet) {
-        for (let i = 0; i < adet; i++) {
-            const heart = document.createElement("div");
-            heart.className = "heart";
-            heart.innerHTML = "💖";
-            heart.style.left = Math.random() * window.innerWidth + "px";
-            heart.style.bottom = "-20px";
-            heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
-            document.body.appendChild(heart);
-
-            setTimeout(() => heart.remove(), 5000);
-        }
-    }
-</script>
-
-</body>
+  </div>  <footer>
+    <p>© 2026 Bilgilendirici Site | Eğitim amaçlıdır</p>
+  </footer></body>
 </html>
